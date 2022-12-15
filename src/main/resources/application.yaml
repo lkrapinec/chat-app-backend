@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    username: ${DATABASE_USERNAME:chat-app-user}
+    password: ${DATABASE_PASSWORD:chat-app-password}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/chat-app}
+  messages:
+    encoding: UTF-8
+  jpa:
+    database: POSTGRESQL
+    database-platform: postgres
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    change-log: db/master-changelog.xml
+    contexts: prod

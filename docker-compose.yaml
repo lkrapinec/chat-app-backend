@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:15.1
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: chat-app-password
+      POSTGRES_USER: chat-app-user
+      POSTGRES_DB: chat-app

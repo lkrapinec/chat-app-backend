@@ -1,0 +1,9 @@
+.idea
+.mvn
+node_modules
+target
+/backend.iml
+/HELP.md
+/mvnw
+/nohup.out
+/mvnw.cmd

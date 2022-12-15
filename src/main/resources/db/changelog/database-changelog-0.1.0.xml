@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="202212051207" author="lkrapinec">
+        <tagDatabase tag="0.1.0"/>
+    </changeSet>
+
+    <changeSet id="202212051212" author="lkrapinec">
+        <createTable tableName="blog">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(5000)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="text" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_creation" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_update" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="202212051208" author="lkrapinec">
+        <createTable tableName="comment">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="text" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_creation" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_update" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="202212051235" author="lkrapinec">
+        <createTable tableName="blog_comments">
+            <column name="blog_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="blog_comments" baseColumnNames="blog_id"
+                                 constraintName="blog_fk" referencedTableName="blog"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="blog_comments" baseColumnNames="comment_id"
+                                 constraintName="comment_fk" referencedTableName="comment"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

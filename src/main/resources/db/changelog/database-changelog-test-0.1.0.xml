@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+
+    <changeSet id="202212051447" author="lkrapinec" context="test">
+        <insert tableName="blog">
+            <column name="title" value="Title 1"/>
+            <column name="description" value="description 1"/>
+        </insert>
+        <insert tableName="blog">
+            <column name="title" value="Title 2"/>
+            <column name="description" value="description 2"/>
+        </insert>
+        <insert tableName="blog">
+            <column name="title" value="Title 3"/>
+            <column name="description" value="description 3"/>
+        </insert>
+
+        <insert tableName="comment">
+            <column name="content" value="This is first comment."/>
+            <column name="date_of_creation" value="2015-08-04 12:30"/>
+            <column name="date_of_update" value="2017-09-03 18:30"/>
+            <column name="author" value="author 1"/>
+        </insert>
+        <insert tableName="comment">
+            <column name="content" value="This is second comment."/>
+            <column name="date_of_creation" value="2015-08-04 12:30"/>
+            <column name="date_of_update" value="2017-09-03 18:30"/>
+            <column name="author" value="author 2"/>
+        </insert>
+        <insert tableName="comment">
+            <column name="content" value="This is third comment."/>
+            <column name="date_of_creation" value="2015-08-04 12:30"/>
+            <column name="date_of_update" value="2017-09-03 18:30"/>
+            <column name="author" value="author 3"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
