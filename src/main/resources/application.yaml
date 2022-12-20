@@ -16,3 +16,6 @@ spring:
   liquibase:
     change-log: db/master-changelog.xml
     contexts: prod
+rsa:
+  private-key: classpath:certs/private.pem
+  public-key: classpath:certs/public.pem
