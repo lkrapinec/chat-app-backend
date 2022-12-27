@@ -1,19 +1,20 @@
 package com.chatapp.backend.service;
 
-import com.chatapp.backend.model.dto.BlogDTO;
-import com.chatapp.backend.model.dto.CommentDTO;
+import com.chatapp.backend.model.dto.BlogDto;
+import com.chatapp.backend.model.dto.CommentDto;
+
 import java.util.List;
 
 public interface BlogService {
-  BlogDTO getBlog(Long id);
+    BlogDto getBlog(Long id);
 
-  List<BlogDTO> getAllBlogs();
+    List<BlogDto> getAllBlogs();
 
-  BlogDTO createBlog(BlogDTO blogDTO);
+    BlogDto createBlog(BlogDto blogDTO);
 
-  BlogDTO updateBlog(BlogDTO blogDTO);
+    BlogDto updateBlog(BlogDto blogDTO);
 
-  void deleteBlog(Long id);
+    void deleteBlog(Long id);
 
-  CommentDTO addCommentToBlog(CommentDTO commentDTO, Long id);
+    CommentDto addCommentToBlog(CommentDto commentDTO, Long id);
 }

@@ -1,33 +1,32 @@
-package com.chatapp.backend.model;
+package com.chatapp.backend.model.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "comment")
-public class Comment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class BlogDto {
     private Long id;
 
-    @Column(name = "text")
+    private String title;
+
+    private String description;
+
     private String text;
 
-    @Column(name = "date_of_creation")
     private LocalDateTime dateOfCreation;
 
-    @Column(name = "date_of_update")
+
     private LocalDateTime dateOfUpdate;
 
-    @Column(name = "author")
     private String author;
+
+    private List<CommentDto> comments;
 }

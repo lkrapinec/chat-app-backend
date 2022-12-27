@@ -10,10 +10,10 @@
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="name" type="VARCHAR(50)">
+            <column name="first_name" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="username" type="VARCHAR(50)">
+            <column name="last_name" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="password" type="TEXT">
@@ -25,13 +25,35 @@
             <column name="user_role" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="locked" type="BOOLEAN">
+            <column name="locked" type="BOOLEAN" defaultValue="false">
                 <constraints nullable="false"/>
             </column>
-            <column name="enabled" type="BOOLEAN">
+            <column name="enabled" type="BOOLEAN" defaultValue="false">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
 
+    <changeSet id="202212202042" author="lkrapinec">
+        <createTable tableName="confirmation_token">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="token" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expires_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="confirmed_at" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+            <column name="app_user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>

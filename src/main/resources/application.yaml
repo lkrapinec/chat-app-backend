@@ -16,6 +16,18 @@ spring:
   liquibase:
     change-log: db/master-changelog.xml
     contexts: prod
+  mail:
+    host: ${SMTP_HOST:smtp.gmail.com}
+    protocol: ${SMTP_PROTOCOL:smtp}
+    port: ${SMTP_PORT:587}
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_AUTH:true}
+          starttls:
+            enable: ${MAIL_ENABLE:true}
+    username: ${SMTP_USERNAME:chattapp741@gmail.com}
+    password: ${SMTP_PASSWORD:jwomoksrujiensxp}
 rsa:
   private-key: classpath:certs/private.pem
   public-key: classpath:certs/public.pem
